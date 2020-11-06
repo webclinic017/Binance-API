@@ -1,6 +1,8 @@
 from flask import Flask, render_template
 import config, csv
 from binance.client import Client
+from binance.enums import *
+
 # from jinja2 import Template
 
 app = Flask(__name__)
@@ -19,6 +21,11 @@ def index():
 
 @app.route('/buy')
 def buy():
+    order = client.create_order(symbol='LTC',side=SIDE_BUY,
+    type=ORDER_TYPE_LIMIT,
+    timeInForce=TIME_IN_FORCE_GTC,
+    quantity=,
+
     return 'buy'
 
 @app.route('/sell')
